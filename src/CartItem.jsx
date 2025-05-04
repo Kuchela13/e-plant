@@ -1,11 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from './CartSlice';
+import { removeItem} from './CartSlice';
+import { updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
+  const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
@@ -22,12 +24,11 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
 const handleCheckoutShopping = (e) => {
-  alert('Functionality to be added for future reference');
+  alert('Coming Soon!');
 };
 
   const handleIncrement = (item) => {
-    console.log('Increment button clicked for:', item);
-    dispatch(updateQuantity({name: item.name, quantity: item.quantity +1}));
+       dispatch(updateQuantity({name: item.name, quantity: item.quantity +1}));
   };
 
   const handleDecrement = (item) => {
@@ -56,6 +57,7 @@ const handleCheckoutShopping = (e) => {
 
   return (
     <div className="cart-container">
+        <h2 style={{ color: 'black' }}>Total Number of Plants: {totalQuantity}</h2>
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
       <div>
         {cart.map(item => (

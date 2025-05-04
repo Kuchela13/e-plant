@@ -12,8 +12,7 @@ function ProductList({ onHomeClick }) {
     const dispatch=useDispatch();
     const cartItems = useSelector(state => state.cart.items);
     const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
-    const {isAdded, setIsAdded}=useState(false);
-    const plantsArray = [
+       const plantsArray = [
         {
             category: "Air Purifying Plants",
             plants: [
@@ -268,6 +267,7 @@ function ProductList({ onHomeClick }) {
         ...prevState,
         [plant.name]:true,
         }));
+    
 
         };
 
@@ -308,10 +308,11 @@ function ProductList({ onHomeClick }) {
 <div className="product-description">{plant.description}</div>
 <div className="product-cost">{plant.cost}</div>
 <button
-className="product-button ${isAdded ? '.added-to-cart' : ''}"
+className="product-button "
 onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
+disabled={addedToCart[plant.name]}
 >
-Add to Cart
+{addedToCart[plant.name]? 'Added to Cart' : 'Add to Cart'}
 </button>
 </div>
 ))}

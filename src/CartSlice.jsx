@@ -21,8 +21,8 @@ export const CartSlice = createSlice({
     removeItem: (state, action) => {
         const {name}=action.payload;
         state.items = state.items.filter(item => item.name !== name);
-    }
-},
+    },
+
 
     
     
@@ -34,7 +34,7 @@ export const CartSlice = createSlice({
         }
     
     },
-  
+},
 });
 
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
