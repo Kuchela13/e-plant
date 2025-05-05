@@ -1,13 +1,13 @@
 {
-    "name": "e-plant-shopping",
-    "homepage": "https://kuchela13.github.io/e-plantShopping/",
+    "name": "e-plant",
+    "homepage": "https://kuchela13.github.io/e-plant/",
     "private": true,
     "version": "0.0.0",
     "type": "module",
     "scripts": {
       "dev": "vite",
       "predeploy": "npm run build",
-      "deploy": "gh-pages -d build",
+      "deploy": "main -d build",
       "build": "vite build",
       "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
       "preview": "vite build; vite preview --host"
